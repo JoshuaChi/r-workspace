@@ -60,11 +60,17 @@ drawLine<-function(ldata,titie="Stock_MA",sDate=min(index(ldata)),eDate=max(inde
 # names(data)<-c(paste('ma',c(2,3),sep=''))
 # data
 
+# 运行程序
 cdata<-IBM['2010/2012']$Close
 title<-"Stock_IBM" #图片标题
 sDate<-as.Date("2010-1-1") #开始日期
 eDate<-as.Date("2012-1-1") #结束日期
 
 ldata<-ma(cdata,c(5,20,60))  #选择滑动平均指标
-head(ldata)
+dev.off()
 drawLine(ldata,title,sDate,eDate) #画图
+
+
+ldata<-ma(cdata,c(20))  #选择滑动平均指标
+drawLine(ldata,title,sDate,eDate) #画图
+
